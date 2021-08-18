@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TwitterClone</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+<!-- start of sidebar -->
+    <section class="sidebar">
+      <i class="fab fa-twitter"></i>
+      <div class="sidebarOption">
+        <i class="fas fa-home"></i>
+        <h2>Home</h2>
+      </div>
+      <div class="sidebarOption">
+        <i class="fas fa-search"></i>
+        <h2>Explore</h2>
+      </div>
+      <div class="sidebarOption">
+        <i class="far fa-bell"></i>
+        <h2>Notifications</h2>
+      </div>
+      <div class="sidebarOption">
+        <i class="far fa-envelope"></i>
+        <h2>Messages</h2>
+      </div>
+      <div class="sidebarOption">
+        <i class="far fa-bookmark"></i>
+        <h2>Bookmarks</h2>
+      </div>
+      <div class="sidebarOption">
+        <i class="far fa-list-alt"></i>
+        <h2>Lists</h2>
+      </div>
+      <div class="sidebarOption">
+        <i class="far fa-user"></i>
+        <h2>Profile</h2>
+      </div>
+      <div class="sidebarOption">
+        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        <h2>More</h2>
+      </div>
+      <button class="sidebar-tweet">Tweet</button>
+    </section>
+<!-- end of sidebar -->
+<!-- start of feed-->
+      <section class="feed">
+        <div class="feed-header">
+          <h2>Home</h2>
+        </div>
+        <!-- start of tweet-box -->
+        <div class="tweet-box">
+          <form action="">
+            <div class="tweetbox-input">
+              <img src="./img/profile.png" alt="" />
+              <input type="text" placeholder="What's happening?" />
+            </div>
+            <button class="tweetbox-tweetButton">Tweet</button>
+          </form>
+        </div>
+        <!-- end of tweet-box -->
+      </section>
+<!-- end of feed-->
+<!-- start of post -->
+      <div id="post"></div>
+<!-- end of post -->
+  </body>
+</html>
