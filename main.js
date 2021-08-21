@@ -2,7 +2,7 @@
 let textArea = document.getElementById("textArea");
 let tweetButton = document.getElementById("tweetButton");
 let postContainer = document.getElementById("postContainer");
-let section, para,likePost;
+let section, para,likePost,retweet;
 
 tweetButton.onclick = addPost;
 
@@ -18,25 +18,32 @@ function addPost(event) {
     alert("Plaese Enter your post ^_^");
   } else {
     event.preventDefault();
+  }
+    if(textArea.value.length > 250){
+        alert("the Text is longer than 250 char");
+    }
+    else{
 
-    section = document.createElement("section");
-    postContainer.appendChild(section);
-    section.setAttribute("class", "post");
+    sectionPost = document.createElement("section");
+    postContainer.appendChild(sectionPost);
+    sectionPost.setAttribute("class", "post");
 
     para = document.createElement("p");
     para.textContent = textArea.value;
-    section.appendChild(para);
+    sectionPost.appendChild(para);
     para.setAttribute("calss", "paraText");
     // para.style.width = "60%";
-    para.style.borderBottom = "1px solid red";
-
+   
     likePost = document.createElement("i");
-    section.appendChild(likePost);
+    sectionPost.appendChild(likePost);
     likePost.setAttribute("class",'far fa-heart');
+    likePost.setAttribute("id",'likeicon');
+    likePost.setAttribute('onclick','like');
 
     retweet = document.createElement("i");
-    section.appendChild(retweet);
+    sectionPost.appendChild(retweet);
     retweet.setAttribute("class",'fas fa-retweet');
+    retweet.setAttribute("id",'retweeticon');
     
 
     itemsArray.push(textArea.value);
@@ -44,3 +51,4 @@ function addPost(event) {
     document.querySelector("#textArea").value = "";
   }
 }
+
