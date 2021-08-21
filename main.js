@@ -8,7 +8,9 @@ let like = false;
 tweetButton.onclick = addPost;
 
 // declare array to store the input value on it
-let itemsArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")): [];
+let itemsArray = localStorage.getItem("items")
+  ? JSON.parse(localStorage.getItem("items"))
+  : [];
 localStorage.setItem("items", JSON.stringify(itemsArray));
 
 //define add function to add input value on local storage and appear on page
@@ -37,26 +39,32 @@ function addPost(event) {
     sectionPost.appendChild(likePost);
     likePost.setAttribute("class", "far fa-heart");
     likePost.setAttribute("id", "likeicon");
- // likePost.setAttribute("onclick", "like");
+    // likePost.setAttribute("onclick", "like");
 
- likePost.addEventListener('click',()=>{
-    if(like){
-      likePost.setAttribute("class",'fas fa-heart');
-      likePost.setAttribute("id",'liked');
-      like=!like;
-    }else{
-      likePost.setAttribute("class",'far fa-heart');
-      likePost.setAttribute("id",'likeicon');
-      like=!like;
-
-    }
-  
-  })
+    likePost.addEventListener("click", () => {
+      if (like) {
+        likePost.setAttribute("class", "fas fa-heart");
+        likePost.setAttribute("id", "liked");
+        like = !like;
+      } else {
+        likePost.setAttribute("class", "far fa-heart");
+        likePost.setAttribute("id", "likeicon");
+        like = !like;
+      }
+    });
 
     retweet = document.createElement("i");
     sectionPost.appendChild(retweet);
     retweet.setAttribute("class", "fas fa-retweet");
     retweet.setAttribute("id", "retweeticon");
+    retweet.addEventListener("click", Retweet);
+
+    function Retweet() {
+      
+         let copyPost=postContainer.cloneNode(true);
+         postContainer.appendChild(copyPost);
+     
+    }
 
     itemsArray.push(textArea.value);
     localStorage.setItem("items", JSON.stringify(itemsArray));
