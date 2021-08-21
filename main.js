@@ -3,6 +3,7 @@ let textArea = document.getElementById("textArea");
 let tweetButton = document.getElementById("tweetButton");
 let postContainer = document.getElementById("postContainer");
 let section, para, likePost, retweet;
+let like = false;
 
 tweetButton.onclick = addPost;
 
@@ -36,7 +37,21 @@ function addPost(event) {
     sectionPost.appendChild(likePost);
     likePost.setAttribute("class", "far fa-heart");
     likePost.setAttribute("id", "likeicon");
-    likePost.setAttribute("onclick", "like");
+ // likePost.setAttribute("onclick", "like");
+
+ likePost.addEventListener('click',()=>{
+    if(like){
+      likePost.setAttribute("class",'fas fa-heart');
+      likePost.setAttribute("id",'liked');
+      like=!like;
+    }else{
+      likePost.setAttribute("class",'far fa-heart');
+      likePost.setAttribute("id",'likeicon');
+      like=!like;
+
+    }
+  
+  })
 
     retweet = document.createElement("i");
     sectionPost.appendChild(retweet);
