@@ -9,8 +9,7 @@ tweetButton.onclick = addPost;
 
 // declare array to store the input value on it
 let itemsArray = localStorage.getItem("items")
-  ? JSON.parse(localStorage.getItem("items"))
-  : [];
+  ? JSON.parse(localStorage.getItem("items")): [];
 localStorage.setItem("items", JSON.stringify(itemsArray));
 
 //define add function to add input value on local storage and appear on page
@@ -39,7 +38,7 @@ function addPost(event) {
     sectionPost.appendChild(likePost);
     likePost.setAttribute("class", "far fa-heart");
     likePost.setAttribute("id", "likeicon");
-    // likePost.setAttribute("onclick", "like");
+    likePost.setAttribute("onclick", "like");
 
     likePost.addEventListener("click", () => {
       if (like) {
@@ -53,6 +52,14 @@ function addPost(event) {
       }
     });
 
+    // likePost.onclick=function(){
+    
+    //     if(likePost.style.background.value==='red'){
+    //         likePost.style.background='green';
+    //     }
+    //     likePost.style.background='red';
+    // }
+
     retweet = document.createElement("i");
     sectionPost.appendChild(retweet);
     retweet.setAttribute("class", "fas fa-retweet");
@@ -60,10 +67,8 @@ function addPost(event) {
     retweet.addEventListener("click", Retweet);
 
     function Retweet() {
-      
-         let copyPost=postContainer.cloneNode(true);
-         postContainer.appendChild(copyPost);
-     
+      let copyPost = sectionPost.cloneNode(true);
+      postContainer.appendChild(copyPost);
     }
 
     itemsArray.push(textArea.value);
