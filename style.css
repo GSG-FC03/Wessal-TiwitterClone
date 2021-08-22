@@ -10,7 +10,7 @@
 
 body{
 display: flex; 
-height: 100vh;
+height: 100%;
 max-width: 1300px;
 margin: auto;
 margin-right: auto;
@@ -74,8 +74,8 @@ color: var(--twitter-color);
 }
 
 .field{
-    flex: 0.5;
-    border-right: 1px solid var(--twitter-background-color);
+    /* flex: 0.5;
+    border-right: 1px solid var(--twitter-background-color); */
     min-width: fit-content;
     /* overflow-y: scroll; */
 }
@@ -149,6 +149,61 @@ height: 40px;
     width:80px;
     height: 40px;
     margin-left: auto;
+    cursor: pointer;
     
 }
+.filed-container{
+    flex: 0.5;
+    border-right: 1px solid var(--twitter-background-color);
+    
+    
+}
+
+#postContainer{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.post{
+margin: 10px;
+padding: 10px;
+font-size: 16px;
+width: 100%;
+border-bottom: 1px solid var(--twitter-background-color);
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.post:hover{
+    cursor: pointer;
+    background-color:rgba(242, 243, 243, 0.2);
+}
+
+#likeicon{
+margin-top: 20px;
+margin-left:190px
+}
+
+#retweeticon{
+margin-left: 120px;
+}
+
+#likeicon:hover{
+    cursor: pointer;
+    color: red;
+}
+
+#liked {
+    color: red;
+    margin-top: 20px;
+    margin-left: 190px;
+  }
+  
+#retweeticon:hover{
+    cursor: pointer;
+    color: var(--twitter-color);
+}
+
 
