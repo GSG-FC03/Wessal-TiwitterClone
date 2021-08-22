@@ -12,7 +12,7 @@ let itemsArray = localStorage.getItem("items")
   ? JSON.parse(localStorage.getItem("items")): [];
 localStorage.setItem("items", JSON.stringify(itemsArray));
 
-//define add function to add input value on local storage and appear on page
+//define addPost function to add input value on local storage and appear on page
 function addPost(event) {
   if (textArea.value == "" || textArea.value == null) {
     alert("Plaese Enter your post ^_^");
@@ -25,21 +25,25 @@ function addPost(event) {
     );
   } else {
     sectionPost = document.createElement("section");
-    postContainer.appendChild(sectionPost);
     sectionPost.setAttribute("class", "post");
 
     para = document.createElement("p");
     para.textContent = textArea.value;
-    sectionPost.appendChild(para);
     para.setAttribute("calss", "paraText");
-    // para.style.width = "60%";
+    
 
     likePost = document.createElement("i");
-    sectionPost.appendChild(likePost);
     likePost.setAttribute("class", "far fa-heart");
     likePost.setAttribute("id", "likeicon");
     likePost.setAttribute("onclick", "like");
 
+    
+    retweet = document.createElement("i");
+    retweet.setAttribute("class", "fas fa-retweet");
+    retweet.setAttribute("id", "retweeticon");
+    retweet.addEventListener("click", Retweet);
+
+   // function to like post
     likePost.addEventListener("click", () => {
       if (like) {
         likePost.setAttribute("class", "fas fa-heart");
@@ -52,24 +56,17 @@ function addPost(event) {
       }
     });
 
-    // likePost.onclick=function(){
-    
-    //     if(likePost.style.background.value==='red'){
-    //         likePost.style.background='green';
-    //     }
-    //     likePost.style.background='red';
-    // }
-
-    retweet = document.createElement("i");
-    sectionPost.appendChild(retweet);
-    retweet.setAttribute("class", "fas fa-retweet");
-    retweet.setAttribute("id", "retweeticon");
-    retweet.addEventListener("click", Retweet);
-
+    // function to retweet post
     function Retweet() {
       let copyPost = sectionPost.cloneNode(true);
       postContainer.appendChild(copyPost);
     }
+
+    postContainer.appendChild(sectionPost);
+    sectionPost.appendChild(para);
+    sectionPost.appendChild(likePost);
+    sectionPost.appendChild(retweet);
+
 
     itemsArray.push(textArea.value);
     localStorage.setItem("items", JSON.stringify(itemsArray));
